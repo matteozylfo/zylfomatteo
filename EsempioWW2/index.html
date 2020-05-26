@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="it" dir="ltr">
+<head>
+<!-- Programma che permette di avviare un contatore in un file js da parte mentre la scheda di navigazione principale è in ascolto per una possibile azione da parte dell'utente -->
+  <meta charset="utf-8">
+<style type="text/css">
+  body{text-align: center;}
+  p{font-size: 40px;}
+  button{height: 10%; width: 10%;font-size: 30px;}
+</style>
+</head>
+<body>
+
+<p>Contatore numeri: <output id="result"></output></p> <!--paragrafo per indicare il contatore dei numeri-->
+<button onclick="startWorker()">Start</button>  <!--bottone per iniziare il web worker-->
+<button onclick="stopWorker()">Stop</button>  <!--bottone per stoppare il web worker-->
+
+<script type="text/javascript">
+var w; //variabile per oggetto Worker
+
+function startWorker() { //definizione della funzione startWorker() che può essere "avviata" quando clicchiamo il bottone
+
+  if(typeof(Worker) !== "undefined") { //l'operatore typeof è necessario per determinare il tipo di dato della variabile indicata all'intenrno delle parentesi. In questo caso viene controllato se il broswer è supportato per l'esecuzione dei web worker
+    if(typeof(w) == "undefined") {     //In javascript una variabile senza valore viene definita con il termine 'undefined'. Questo controllo serve per valutare se il worker già esiste. Se non +è così viene creato l'oggetto Worker
+      w = new Worker("worker.js");    //creazione di un nuovo web worker predendo il codice dal file 'worker.js'
+    }
+
+    w.onmessage = function(event) { //attraverso la funzione onmessage dell'oggetto w abbiamo la possibilità di ascoltare il ww.
+      document.getElementById("result").innerHTML = event.data; //questa funzione permette di stampare il risultato acquisito dal ww
+    };
+
+  } else {
+    document.getElementById("result").innerHTML = "Attenzione! Il tuo broswer non supporta i web worker"; //stampa di un avviso nel caso in cui il broswer non è supportato
+  }
+}
+
+function stopWorker() { //funzione che permette di terminare l'esecuzione del web worker
+  w.terminate();
+  w = undefined; //imposto la variabile in undefined in modo da poter permette al programma di creare altri oggetti worker
+}
+</script>
+
+</body>
+</html>

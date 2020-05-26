@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=EchoClient
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=args
+comment2.target=void\ menu(java.lang.String[])
+comment3.params=args
+comment3.target=void\ inserimento(java.lang.String[])
+comment4.params=args
+comment4.target=void\ tutti(java.lang.String[])
+comment5.params=i
+comment5.target=void\ visualizzaDato(int)
+comment6.params=stringa\ num
+comment6.target=java.lang.String\ fissa(java.lang.String,\ int)
+comment7.params=
+comment7.target=void\ cls()
+comment8.params=args\ scelta
+comment8.target=void\ messaggi(java.lang.String[],\ java.lang.String)
+numComments=9

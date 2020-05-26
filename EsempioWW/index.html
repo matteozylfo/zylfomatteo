@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="it" dir="ltr">
+<head>
+  <!--Programma che permette di due contatore in modo asincrono rispettivamente localizzati in un file js e nella scheda di navigazione principale -->
+    <meta charset="utf-8">
+    <title>Web Workers</title>
+    <style type="text/css">
+    body {padding-top:28px; text-align: center; font-size: 20px;}
+    </style>
+</head>
+<body> <!-- definizione e creazione dei vari bottoni per la gestione asincrona fra WW e scheda di navigazione principale -->
+<div class="output-cont"><button onclick="testWorker()">Inizia Web Worker</button><h3 id="workerOutput"></h3><button onclick="terminateWorker()">Termina worker</button></div>
+<br/>
+<div class="output-cont"><button onclick="testMainThread()">Inizia broswer</button><h3 id="mainThreadOutput"></h3></div>
+<br/>
+<div class="output-cont"><button onclick="alert('browser responsive!')">Test broswer</button></div>
+
+<script>
+    var worker; //dichiarazione della variabile worker per allocazione dell'oggetto della classe Worker
+
+    function testWorker() { //funzione avviata quando clicchiamo sul bottone "Inizia Web Worker"
+        if (typeof(Worker) !== "undefined") { //controlla che il broswer supporti i ww
+            if (typeof(worker) == "undefined") { //controlla se un oggetto Worker è già stato creato
+                worker = new Worker("worker.js"); //creazione del ww predendo il codice dal file 'worker.js'
+            }
+            worker.onmessage = function(event) { //funzione in dot-notation che permette di ascoltare i risultati inviati dal file esterno js
+                document.getElementById("workerOutput").innerHTML = event.data;
+            };
+        } else {
+            document.getElementById("workerOutput").innerHTML = "Attenzione! Il broswer non supporta i WebWorker";
+        }
+    }
+    function terminateWorker() { //funzione per i WebWorker
+        worker.terminate();
+        worker = undefined;
+    }
+
+    function testMainThread() { //funzione che permette di avviare in contemporanea al ww un contatore nella principale scheda di navigazione
+        for (var i = 0; i < 10000 ; i++) {
+            document.getElementById("mainThreadOutput").innerHTML = "Main Thread Counter: " + i;
+        }
+    }
+  </script>
+
+</body>
+
+</html>

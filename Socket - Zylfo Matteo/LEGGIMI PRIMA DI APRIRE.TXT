@@ -1,0 +1,13 @@
+----------------------------------------------------------------------------------
+******** File README del progetto ********    Qui dovresti descrivere il progetto.
+Chi legge questo file, pur non sapendo nulla del progetto, dovrebbe ottenere tutte
+le informazioni di cui ha bisogno. Probabilmente le informazioni essenziali sono:
+----------------------------------------------------------------------------------
+
+Salve Prof,
+questo progetto comprende un programma che ho costruito da solo, partendo dall'esempio 
+che ci ha dato.
+L'obiettivo di questo programma è gestire una rubrica tra client e server.
+Per interagire con il server, deve cliccare "ricerca contatto".
+A questo punto verrà stabilita la connessione e il server cercherà il nominativo
+di contatto nella rubrica e lo stampa direttamente nel server.

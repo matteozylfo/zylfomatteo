@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Collezione CD</title>
+    <style type="text/css">
+    table,th,td {
+      border : 1px solid black;
+      border-collapse: collapse;
+    }
+    th,td {
+      padding: 5px;
+    }
+    body{text-align: center;}
+    div{position: absolute; left: 43%;}
+    </style>
+    </style>
+  </head>
+  <body>
+    <h1>Lista di CD con AJAX</h1>
+    <button type="button" name="button"onclick="loadDoc()">Carica la collezione da file xml</button>
+    <br>
+    <br>
+    <div>
+      <table id='demo'>
+      </table>
+    </div>
+
+    <script type="text/javascript">
+      function loadDoc(){  //funzione chiamata quando clicchiamo il bottone
+        var xhttp=new XMLHttpRequest(); //dichiarazione allocazione oggetto XMLHttpRequest
+
+        xhttp.onreadystatechange=function(){
+          if (this.readyState == 4 && this.status == 200) {
+          myFunction(this); //chiamata della funzione per la creazione della tabella con bordi e tutto
+        }
+        };
+
+        xhttp.open("GET","cd_catalog.xml", true);
+        xhttp.send();
+}
+        function myFunction(xml){
+          var i; //contatore per indice tabella
+          var xmlDoc = xml.responseXML;
+          var table="<tr><th>Artista</th><th>Titolo</th><th>Anno</th></tr>";
+          var x = xmlDoc.getElementsByTagName("CD");
+
+          for (i = 0; i <x.length; i++) { //ciclo iterativo per fare la tabella
+            table += "<tr><td>" +
+            x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+            "</td><td>" +
+            x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+            "</td><td>" +
+            x[i].getElementsByTagName("YEAR")[0].childNodes[0].nodeValue +
+            "</td></tr>";
+          }
+          document.getElementById("demo").innerHTML = table;
+
+        }
+
+    </script>
+  </body>
+</html>

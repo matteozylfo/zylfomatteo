@@ -1,0 +1,42 @@
+<CATALOG> //definisco vari tag per il recupero facile delle informazioni da main.html
+<CD>
+<TITLE>Abbey road</TITLE>
+<ARTIST>the Beatles</ARTIST>
+<COUNTRY>UK</COUNTRY>
+<COMPANY>CBS records</COMPANY>
+<PRICE>10.90</PRICE>
+<YEAR>1969</YEAR>
+</CD>
+<CD>
+<TITLE>Lungolinea.</TITLE>
+<ARTIST>Frah Quintale</ARTIST>
+<COUNTRY>Italy</COUNTRY>
+<COMPANY>Sony</COMPANY>
+<PRICE>9.90</PRICE>
+<YEAR>2018</YEAR>
+</CD>
+<CD>
+<TITLE>El mal querer</TITLE>
+<ARTIST>Rosalìa</ARTIST>
+<COUNTRY>Spain</COUNTRY>
+<COMPANY>UMI</COMPANY>
+<PRICE>9.90</PRICE>
+<YEAR>2018</YEAR>
+</CD>
+<CD>
+<TITLE>18 months</TITLE>
+<ARTIST>Calvin Harris</ARTIST>
+<COUNTRY>UK</COUNTRY>
+<COMPANY>Virgin records</COMPANY>
+<PRICE>10.20</PRICE>
+<YEAR>2012</YEAR>
+</CD>
+<CD>
+<TITLE>Astroworld</TITLE>
+<ARTIST>Travis Scott</ARTIST>
+<COUNTRY>USA</COUNTRY>
+<COMPANY>UMI</COMPANY>
+<PRICE>9.90</PRICE>
+<YEAR>2018</YEAR>
+</CD>
+</CATALOG>
